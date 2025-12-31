@@ -1,0 +1,115 @@
+{
+    "common": {
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit",
+        "create": "Create",
+        "close": "Close",
+        "open": "Open",
+        "hide": "Hide",
+        "confirm": "Confirm",
+        "reset": "Reset"
+    },
+    "toolbar": {
+        "title": "Plotline",
+        "subtitle": "Story Visualizer",
+        "save": "💾 Save",
+        "open": "📂 Open",
+        "resetData": "🗑️ Clear Data",
+        "resetConfirm": "Are you sure you want to clear all data? This cannot be undone.",
+        "help": "Show Tutorial"
+    },
+    "narrative": {
+        "title": "Narrative",
+        "openPanel": "Open Narrative Panel",
+        "edit": "✏️ Edit",
+        "hidePanel": "◀ Hide",
+        "placeholder": "Click Edit to paste or enter your story text.",
+        "textareaPlaceholder": "Enter your story text...",
+        "generateSequence": "Generate Sequence",
+        "generating": "Generating...",
+        "dragToResize": "Drag to resize",
+        "stats": "{chars} chars • {sections} sections",
+        "enterText": "Click Edit to paste or enter text"
+    },
+    "track": {
+        "location": "Location",
+        "action": "Action",
+        "stateInvInfo": "State/Items/Info"
+    },
+    "event": {
+        "createTitle": "Create New Event",
+        "editTitle": "Edit Event",
+        "description": "Description",
+        "type": "Type",
+        "typeAction": "Action",
+        "typeReaction": "Reaction",
+        "dialogue": "Dialogue",
+        "location": "Location",
+        "stateChange": "State Change",
+        "stateChangePlaceholder": "e.g. {\"mood\": \"happy\"}",
+        "itemsToAdd": "Items to Add",
+        "itemsToAddPlaceholder": "Comma separated",
+        "removeItems": "Remove Items",
+        "character": "Character",
+        "timeStep": "Time Step",
+        "reactsTo": "Reacts To",
+        "selectSource": "Select source event...",
+        "noSourceEvents": "No source events",
+        "currentInventory": "Current Inventory",
+        "noItems": "No items",
+        "deleteEvent": "🗑️ Delete Event",
+        "deleteConfirm": "Delete this event?",
+        "clickToSelect": "Click to select / show details"
+    },
+    "eventDetails": {
+        "location": "📍 Location:",
+        "dialogue": "💬 Dialogue:",
+        "stateChange": "🔄 Changes:",
+        "items": "🎒 Items:",
+        "knowledge": "💡 Knowledge:",
+        "currentState": "📊 After this event",
+        "state": "😐 State:",
+        "inventory": "🎒 Items:",
+        "info": "💡 Info:",
+        "time": "🕐 Time:"
+    },
+    "character": {
+        "editTitle": "Edit Character",
+        "name": "Name",
+        "color": "Color",
+        "initialLocation": "Initial Location",
+        "initialState": "Initial State",
+        "initialInventory": "Initial Inventory",
+        "initialKnowledge": "Initial Knowledge"
+    },
+    "state": {
+        "state": "😐 State:",
+        "items": "🎒 Items:",
+        "info": "💡 Info:"
+    },
+    "language": {
+        "label": "Language",
+        "ja": "日本語",
+        "en": "English"
+    },
+    "settings": {
+        "title": "AI Settings",
+        "apiKey": "API Key",
+        "apiKeyPlaceholder": "Paste your Google AI API key",
+        "apiKeyHelp": "Get your key from Google AI Studio",
+        "testConnection": "Test",
+        "testSuccess": "✓ Valid key",
+        "saved": "Set!",
+        "apiKeyRequired": "API key required for AI features",
+        "deleteApiKey": "Delete Key",
+        "setApiKey": "Set",
+        "privacyTitle": "About API Key Handling",
+        "privacyNotice1": "Your key is sent directly to Google and is never sent to our server.",
+        "privacyNotice2": "We do not store your key. It is cleared when you close the page.",
+        "privacyHint": "Hint: Use your browser's password manager to securely save your key for next time.",
+        "model": "Model",
+        "modelDescription": "Select AI model to use"
+    }
+}

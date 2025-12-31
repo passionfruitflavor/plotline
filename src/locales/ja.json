@@ -1,0 +1,115 @@
+{
+    "common": {
+        "save": "保存",
+        "cancel": "キャンセル",
+        "delete": "削除",
+        "edit": "編集",
+        "create": "作成",
+        "close": "閉じる",
+        "open": "開く",
+        "hide": "隠す",
+        "confirm": "確認",
+        "reset": "リセット"
+    },
+    "toolbar": {
+        "title": "Plotline",
+        "subtitle": "Story Visualizer",
+        "save": "💾 保存",
+        "open": "📂 開く",
+        "resetData": "🗑️ データを消去",
+        "resetConfirm": "本当にすべてのデータを削除しますか？この操作は取り消せません。",
+        "help": "使い方を見る"
+    },
+    "narrative": {
+        "title": "Narrative",
+        "openPanel": "Narrative パネルを開く",
+        "edit": "✏️ 編集",
+        "hidePanel": "◀ 隠す",
+        "placeholder": "編集ボタンを押して、テキストを貼り付けるか入力してください。",
+        "textareaPlaceholder": "物語のテキストを入力...",
+        "generateSequence": "シーケンス生成",
+        "generating": "生成中...",
+        "dragToResize": "ドラッグしてリサイズ",
+        "stats": "{chars} 文字 • {sections} セクション",
+        "enterText": "編集ボタンを押して、テキストを貼り付けるか入力してください"
+    },
+    "track": {
+        "location": "Location",
+        "action": "Action",
+        "stateInvInfo": "State/Items/Info"
+    },
+    "event": {
+        "createTitle": "新規イベント作成",
+        "editTitle": "イベント編集",
+        "description": "説明",
+        "type": "タイプ",
+        "typeAction": "アクション",
+        "typeReaction": "リアクション",
+        "dialogue": "セリフ",
+        "location": "場所",
+        "stateChange": "状態変化",
+        "stateChangePlaceholder": "例: {\"mood\": \"happy\"}",
+        "itemsToAdd": "追加アイテム",
+        "itemsToAddPlaceholder": "カンマ区切り",
+        "removeItems": "アイテム削除",
+        "character": "キャラクター",
+        "timeStep": "時間ステップ",
+        "reactsTo": "リアクション対象",
+        "selectSource": "対象イベントを選択...",
+        "noSourceEvents": "対象イベントなし",
+        "currentInventory": "現在の所持品",
+        "noItems": "アイテムなし",
+        "deleteEvent": "🗑️ イベント削除",
+        "deleteConfirm": "このイベントを削除しますか？",
+        "clickToSelect": "クリックで選択 / 詳細表示"
+    },
+    "eventDetails": {
+        "location": "📍 場所:",
+        "dialogue": "💬 台詞:",
+        "stateChange": "🔄 変化:",
+        "items": "🎒 アイテム:",
+        "knowledge": "💡 知識:",
+        "currentState": "📊 イベント後",
+        "state": "😐 状態:",
+        "inventory": "🎒 Items:",
+        "info": "💡 知識:",
+        "time": "🕐 時間:"
+    },
+    "character": {
+        "editTitle": "キャラクター編集",
+        "name": "名前",
+        "color": "カラー",
+        "initialLocation": "初期場所",
+        "initialState": "初期状態",
+        "initialInventory": "初期所持品",
+        "initialKnowledge": "初期知識"
+    },
+    "state": {
+        "state": "😐 状態:",
+        "items": "🎒 Items:",
+        "info": "💡 Info:"
+    },
+    "language": {
+        "label": "言語",
+        "ja": "日本語",
+        "en": "English"
+    },
+    "settings": {
+        "title": "AI設定",
+        "apiKey": "API キー",
+        "apiKeyPlaceholder": "Google AI API キーを貼り付け",
+        "apiKeyHelp": "Google AI Studio から取得",
+        "testConnection": "テスト",
+        "testSuccess": "✓ 有効なキーです",
+        "saved": "設定しました",
+        "apiKeyRequired": "AI機能にはAPIキーが必要です",
+        "deleteApiKey": "キーを削除",
+        "setApiKey": "設定",
+        "privacyTitle": "APIキーの取り扱いについて",
+        "privacyNotice1": "キーは直接Googleに送信され、当アプリのサーバーには送信されません。",
+        "privacyNotice2": "アプリ側でキーを保存することはありません。画面を閉じると消去されます。",
+        "privacyHint": "ヒント： ブラウザの「パスワードマネージャー」を使うと、安全に次回からの入力を省略できます。",
+        "model": "モデル",
+        "modelDescription": "使用するAIモデルを選択"
+    }
+}

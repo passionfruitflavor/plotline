@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+:root {
+  /* Theme Base - Enforcing Light Mode */
+  --background: #ffffff;
+  /* White */
+  --foreground: #0f172a;
+  /* Slate 900 */
+
+  /* App Theme - Clean Air (Pattern 6) */
+  --app-bg-primary: #ffffff;
+  /* white */
+  --app-bg-secondary: #f8fafc;
+  /* slate-50 */
+  --app-bg-tertiary: #f1f5f9;
+  /* slate-100 */
+  --app-bg-hover: #e2e8f0;
+  /* slate-200 */
+  --app-border: #e2e8f0;
+  /* slate-200 */
+  --app-border-light: #cbd5e1;
+  /* slate-300 */
+  --app-accent: #0ea5e9;
+  /* sky-500 */
+  --app-accent-hover: #0284c7;
+  /* sky-600 */
+  --app-text: #0f172a;
+  /* slate-900 */
+  --app-text-subtle: #334155;
+  /* slate-700 */
+  --app-text-muted: #64748b;
+  /* slate-500 */
+  --app-text-dim: #94a3b8;
+  /* slate-400 */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* App Theme Colors */
+  --color-app-bg: var(--app-bg-primary);
+  --color-app-bg-secondary: var(--app-bg-secondary);
+  --color-app-bg-tertiary: var(--app-bg-tertiary);
+  --color-app-bg-hover: var(--app-bg-hover);
+  --color-app-border: var(--app-border);
+  --color-app-border-light: var(--app-border-light);
+  --color-app-accent: var(--app-accent);
+  --color-app-accent-hover: var(--app-accent-hover);
+  --color-app-text: var(--app-text);
+  --color-app-text-subtle: var(--app-text-subtle);
+  --color-app-text-muted: var(--app-text-muted);
+  --color-app-text-dim: var(--app-text-dim);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* App Theme Utility Classes */
+.bg-app-primary {
+  background-color: var(--app-bg-primary);
+}
+
+.bg-app-secondary {
+  background-color: var(--app-bg-secondary);
+}
+
+.bg-app-tertiary {
+  background-color: var(--app-bg-tertiary);
+}
+
+.bg-app-hover {
+  background-color: var(--app-bg-hover);
+}
+
+.hover\:bg-app-tertiary:hover {
+  background-color: var(--app-bg-tertiary);
+}
+
+.hover\:bg-app-hover:hover {
+  background-color: var(--app-bg-hover);
+}
+
+.border-app {
+  border-color: var(--app-border);
+}
+
+.border-app-light {
+  border-color: var(--app-border-light);
+}
+
+.border-app-subtle {
+  border-color: var(--app-border-light);
+}
+
+.bg-app-accent {
+  background-color: var(--app-accent);
+}
+
+.hover\:bg-app-accent-hover:hover {
+  background-color: var(--app-accent-hover);
+}
+
+.text-app {
+  color: var(--app-text);
+}
+
+.text-app-subtle {
+  color: var(--app-text-subtle);
+}
+
+.text-app-muted {
+  color: var(--app-text-muted);
+}
+
+.text-app-dim {
+  color: var(--app-text-dim);
+}
+
+.hover\:text-app:hover {
+  color: var(--app-text);
+}
