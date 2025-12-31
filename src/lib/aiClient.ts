@@ -91,24 +91,60 @@ export async function extractTimeline(text: string, language: 'ja' | 'en' = 'ja'
 
         const responseText = response.text || '';
 
-        // Parse JSON response
-        let jsonData;
-        try {
-            const jsonMatch = responseText.match(/```json\s*([\s\S]*?)\s*```/);
+        // Sanitize JSON string to fix common issues
+        const sanitizeJsonString = (str: string): string => {
+            return str
+                // Remove control characters except for valid whitespace
+                .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '')
+                // Fix unescaped newlines within strings
+                .replace(/(?<!\\)\\n(?=[^"]*"[^"]*(?:"[^"]*"[^"]*)*$)/g, '\\n')
+                // Fix unescaped tabs within strings
+                .replace(/\t/g, '\\t')
+                // Fix common issue: missing comma between properties (newline followed by quotes)
+                .replace(/"\s*\n\s*"/g, '",\n"')
+                // Remove trailing commas before closing brackets/braces
+                .replace(/,(\s*[}\]])/g, '$1');
+        };
+
+        // Extract JSON content with detailed error handling
+        const extractJsonContent = (text: string): string => {
+            // Try to extract from markdown code block first
+            const jsonMatch = text.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
             if (jsonMatch) {
-                jsonData = JSON.parse(jsonMatch[1]);
-            } else {
-                jsonData = JSON.parse(responseText);
+                return jsonMatch[1].trim();
             }
-        } catch {
-            // Try to extract JSON from the response
-            const startIndex = responseText.indexOf('{');
-            const endIndex = responseText.lastIndexOf('}');
-            if (startIndex !== -1 && endIndex !== -1) {
-                jsonData = JSON.parse(responseText.slice(startIndex, endIndex + 1));
-            } else {
-                throw new Error('Could not parse AI response as JSON');
+            // Try to extract raw JSON object
+            const startIndex = text.indexOf('{');
+            const endIndex = text.lastIndexOf('}');
+            if (startIndex !== -1 && endIndex !== -1 && endIndex > startIndex) {
+                return text.slice(startIndex, endIndex + 1);
             }
+            return text;
+        };
+
+        // Parse JSON response with improved error handling
+        let jsonData;
+        const jsonContent = extractJsonContent(responseText);
+        const sanitizedJson = sanitizeJsonString(jsonContent);
+
+        try {
+            jsonData = JSON.parse(sanitizedJson);
+        } catch (parseError) {
+            // Provide detailed error message for debugging
+            const error = parseError as SyntaxError;
+            const positionMatch = error.message.match(/position (\d+)/);
+            const position = positionMatch ? parseInt(positionMatch[1], 10) : -1;
+
+            let errorContext = '';
+            if (position !== -1 && position < sanitizedJson.length) {
+                const start = Math.max(0, position - 50);
+                const end = Math.min(sanitizedJson.length, position + 50);
+                const before = sanitizedJson.slice(start, position);
+                const after = sanitizedJson.slice(position, end);
+                errorContext = `\n\nContext around error position ${position}:\n...${before}[ERROR HERE]${after}...`;
+            }
+
+            throw new Error(`JSON parse error: ${error.message}${errorContext}`);
         }
 
         return {

@@ -13,7 +13,15 @@ export const PROMPTS = {
     system: `あなたは物語の時系列分析者です。物語テキストから出来事を抽出し、それらを時系列順に並べ替えてください。
 
 重要: 物語では過去の出来事が回想として後から語られることがあります。
-あなたの仕事は「叙述順序」と「時系列順序」を区別することです。`,
+あなたの仕事は「叙述順序」と「時系列順序」を区別することです。
+
+【出力に関する厳格なルール】
+- 必ず有効なJSONのみを出力してください（説明文やマークダウンは不要）
+- 文字列値には必ずダブルクォートを使用してください
+- 文字列内のダブルクォートは \\" でエスケープしてください
+- 文字列内の改行は \\n でエスケープしてください
+- 文字列内のバックスラッシュは \\\\ でエスケープしてください
+- コロン(:)を値に含める場合も必ず文字列として正しくクォートしてください`,
 
     user: (text: string, language: 'ja' | 'en' = 'ja') => language === 'ja'
       ? `以下の物語テキストを分析してください。
@@ -51,7 +59,7 @@ ${text}
     {
       "from_event": 1,
       "to_event": 2,
-      "type": "causes | enables | triggers | leads_to",
+      "type": "causes",
       "description": "なぜこの関係があるか"
     }
   ]
@@ -60,13 +68,16 @@ ${text}
 【ルール】
 1. events配列は時系列順に並べること（配列の順番 = 時間の順番）
 2. narrative_position: テキスト内で語られた順番（1から開始）
-3. estimated_time: 相対的な時間でOK（例: "5年前", "翌日"）
-4. connections: 異なるキャラクター間の因果関係を抽出
-   - from_event/to_event: narrative_positionの値
-   - type: causes=直接的原因, enables=可能にする, triggers=きっかけ, leads_to=結果として
+3. estimated_time: 相対的な時間で記載（例: "5年前", "翌日"）
+4. connections.type: 以下の4つのいずれか一つだけを指定
+   - "causes" = 直接的原因
+   - "enables" = 可能にする
+   - "triggers" = きっかけ
+   - "leads_to" = 結果として
 5. state_change: 心情や状態が変化した場合に記載
 6. item_changes: アイテムを得た/失った場合に記載
-7. knowledge_changes: 新しい情報を知った場合に記載`
+7. knowledge_changes: 新しい情報を知った場合に記載
+8. 全ての文字列値は正しくエスケープすること（ダブルクォート、改行、バックスラッシュ）`
 
 
       : `Analyze the following story text.
@@ -104,7 +115,7 @@ Output in the following JSON format:
     {
       "from_event": 1,
       "to_event": 2,
-      "type": "causes | enables | triggers | leads_to",
+      "type": "causes",
       "description": "Why this relationship exists"
     }
   ]
@@ -113,11 +124,16 @@ Output in the following JSON format:
 【Rules】
 1. events array must be in chronological order (array order = time order)
 2. narrative_position: Order in which events are narrated (starting from 1)
-3. estimated_time: Relative time is OK (e.g., "5 years before main events")
-4. connections: Extract causal relationships between different characters
+3. estimated_time: Relative time (e.g., "5 years before main events")
+4. connections.type: Must be exactly one of these four values:
+   - "causes" = Direct cause
+   - "enables" = Makes possible
+   - "triggers" = Triggers
+   - "leads_to" = Results in
 5. state_change: Record mood/state changes if any
 6. item_changes: Record items gained/lost if any
-7. knowledge_changes: Record new information learned if any`,
+7. knowledge_changes: Record new information learned if any
+8. All string values must be properly escaped (double quotes, newlines, backslashes)`,
   },
 
   /**
