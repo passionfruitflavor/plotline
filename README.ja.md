@@ -21,7 +21,7 @@ AIを活用したイベント抽出機能を備えたビジュアルタイムラ
 
 ### オンラインで試す
 
-**[plotline-tools.vercel.app](https://plotline-tools.vercel.app)** にアクセスして、すぐにPlotlineを使用できます。
+**[plotlinetools.vercel.app](https://plotlinetools.vercel.app)** にアクセスして、すぐにPlotlineを使用できます。
 
 ## 🎮 使い方
 

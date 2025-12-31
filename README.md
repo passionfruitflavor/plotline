@@ -23,7 +23,7 @@ A visual timeline editor for stories with AI-powered event extraction. Transform
 
 ### Try Online
 
-Visit **[plotline-tools.vercel.app](https://plotline-tools.vercel.app)** to use Plotline instantly.
+Visit **[plotlinetools.vercel.app](https://plotlinetools.vercel.app)** to use Plotline instantly.
 
 ## 🎮 Usage
 
