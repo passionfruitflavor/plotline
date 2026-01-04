@@ -101,6 +101,15 @@ const Toolbar: React.FC = () => {
                 ❓ Help
             </button>
 
+            <a
+                href="https://github.com/passionfruitflavor/plotline"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1.5 bg-app-hover hover:bg-app-border-light text-app text-xs rounded transition-colors"
+            >
+                GitHub
+            </a>
+
             <LanguageSelector />
 
             <button
