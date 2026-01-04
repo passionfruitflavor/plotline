@@ -38,13 +38,22 @@ const EventNode: React.FC<EventNodeProps> = ({ event, color, isSelected, onClick
         onClick?.();
     };
 
+    // Format any value to string (handles nested objects)
+    const formatValue = (value: unknown): string => {
+        if (value === null || value === undefined) return '';
+        if (typeof value === 'object') {
+            return JSON.stringify(value);
+        }
+        return String(value);
+    };
+
     // Format state_change for display
     const formatStateChange = () => {
         if (!event.state_change || Object.keys(event.state_change).length === 0) {
             return null;
         }
         return Object.entries(event.state_change)
-            .map(([key, value]) => `${key}: ${value}`)
+            .map(([key, value]) => `${key}: ${formatValue(value)}`)
             .join(', ');
     };
 
@@ -166,7 +175,7 @@ const EventNode: React.FC<EventNodeProps> = ({ event, color, isSelected, onClick
                                     <div className="ml-2 text-purple-600 mb-1">
                                         {t('eventDetails.state')} {Object.entries(event.cumulative_state).map(([key, value], idx, arr) => (
                                             <span key={key}>
-                                                {key}: {value}
+                                                {key}: {formatValue(value)}
                                                 {idx < arr.length - 1 ? ', ' : ''}
                                             </span>
                                         ))}

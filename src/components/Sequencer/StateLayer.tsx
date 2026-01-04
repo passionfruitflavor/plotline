@@ -99,7 +99,10 @@ const StateLayer: React.FC<StateLayerProps> = ({
                                     width: (seg.end - seg.start) * cellWidth,
                                 }}
                             >
-                                <div className="text-purple-600 font-medium">{t('state.state')} {Object.entries(seg.state).map(([k, v]) => `${k}: ${v}`).join(', ')}</div>
+                                <div className="text-purple-600 font-medium">{t('state.state')} {Object.entries(seg.state).map(([k, v]) => {
+                                    const valueStr = typeof v === 'object' ? JSON.stringify(v) : String(v);
+                                    return `${k}: ${valueStr}`;
+                                }).join(', ')}</div>
                                 {seg.inventory.length > 0 && <div className="text-fuchsia-600">{t('state.items')} {seg.inventory.join(', ')}</div>}
                                 {seg.knowledge.length > 0 && <div className="text-lime-600">{t('state.info')} {seg.knowledge.join(', ')}</div>}
                             </div>
