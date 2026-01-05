@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Plotline - Story Visualizer",
   description: "Visual story timeline editor with AI-powered extraction",
+  verification: {
+    google: "StT2W4f2DgrK_d00a9qFvqqoVcHqcawOaIcFBSNkzww",
+  },
 };
 
 export default function RootLayout({
